@@ -30,7 +30,7 @@
 
         // returns a boolean whether the password matches the stored password
         public function validateUserPass($id, $pass) {
-            $sql = "SELECT * FROM PERSON WHERE id_no = $id AND password = $pass"
+            $sql = "SELECT * FROM PERSON WHERE id_no = $id AND password = $pass";
             if($conn->query($sql) === true)
                 echo "Password and id checked against parametres";
             else
