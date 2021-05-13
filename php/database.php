@@ -1,4 +1,6 @@
 <?php
+    include_once "config.php";
+
     class Database {
         // refers to database connection
         private $conn = null;
