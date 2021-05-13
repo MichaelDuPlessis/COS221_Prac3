@@ -1,5 +1,6 @@
 <?php
     class Database {
+        // refers to database connection
         private $conn = null;
 
         public static function instance() {
@@ -18,6 +19,22 @@
 
         public function __destruct() {
 
+        }
+
+        // returns the result
+        public function findUser($id) {
+            $sql = "Select * from person where id_no=$id";
+            $result = $conn->query($sql);
+
+            return $result;
+        }
+
+        // returns a bool
+        public function checkUserExists($id) {
+            $sql = "Select id_no from person where id_no=$id";
+            $result = $conn->query($sql);
+
+            return ($result->num_rows > 0);
         }
     }
 ?>
