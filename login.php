@@ -14,12 +14,12 @@
             <form method="post">
                 <div class="txt_field">
                     <input type="text" name = "id" required>
-                    <span class = "invalid"></span>
+                    <span class = "invalid"><?php echo $passwordErr; ?></span>
                     <label>ID Number</label>
                 </div>
                 <div class="txt_field">
                     <input type="password" name = "password" required>
-                    <span class = "invalid"> </span>
+                    <span class = "invalid"><?php echo $passwordErr; ?></span>
                     <label>Password</label>
                 </div>
                 <div class="pass">Forgot Password? </div>
