@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    height: 140vh;
-    overflow: hidden;
+    height: 160vh;
+    overflow: scroll;
 }
 
 /*HEADER*/
@@ -17,6 +17,93 @@ img {
 }
 
 /*LOGIN*/
+form {
+    border: 3px solid #f1f1f1;
+}
+
+.center1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    margin-top: 20%;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #199e20;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+    padding-bottom: 25px;
+  }
+  
+  span.signup {
+    float: right;
+    padding-top: 16px;
+    padding-bottom: 15px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+/*
 .center {
     position: absolute;
     top: 50%;
@@ -159,5 +246,6 @@ input[type="submit"]:hover {
 .invalid {
     color: red;
 }
+*/
 
 
