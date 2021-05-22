@@ -27,15 +27,23 @@
         }
 
         public function __destruct() {
-
+            $this->conn->close();
         }
 
-        public function findUser($id) {
+        // returns true if user is found
+        public function findId($id) {
             $sql = "Select id_no from person where id_no=$id";
-            if($this->conn->query($sql) === true)
-                echo "New record created successfully";
-            else
-                echo "Error: " . $sql . "<br>" . $this->conn->error;
+            $result = $this->conn->query($sql);
+
+            return $result->num_rows > 0;
+        }
+
+        // returns true if email is found
+        public function findEmail($email) {
+            $sql = "Select id_no from person where email=$email";
+            $result = $this->conn->query($sql);
+
+            return $result->num_rows > 0;
         }
 
         // returns a boolean whether the password matches the stored password
@@ -55,6 +63,7 @@
         //     return $result;
         // }
 
+<<<<<<< HEAD
         // returns a bool
         public function checkUserExists($id) {
             $sql = "Select id_no from person where id_no=$id";
@@ -86,4 +95,12 @@
  
     
     
+=======
+        public function addUser($id, $name, $mname, $surname, $email, $cell, $pass) {
+            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ? ,?)");
+            $stmt->bind_param("sssssss", $id, $name, $mname, $surname, $email, $cell, $pass);
+            $stmt->execute();
+        }        
+    }
+>>>>>>> 1e117c37ffc76e4d6e88305b9662f3c975642e0d
 ?>
