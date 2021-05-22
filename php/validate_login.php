@@ -29,19 +29,19 @@
 
         if(empty($emailErr) && empty($passwordErr))
         {
-
-            
             
             if ($db->findId($id) === true) {
-                
-                //VERIFY PASSWORD  
+                               
+                if($db->validateUserPass($id,$password))
                 {
                     session_start();
-                    /*function to get data*/
-    
+                    
                     $_SESSION["loggedin"] = true;
                     $_SESSION["id"] = $id;
-                    $_SESSION["name"] = $user;
+                    $name = $db->getUserName($id);
+                    $_SESSION["name"] = $name;
+                    $wardID = $db->getUserWardID($id);
+                    $_SESSION["wardID"] = $wardID;
     
                     if ($db->checkUserinIEC($id) === true)
                         $_SESSION["isIEC"] = true;
@@ -52,6 +52,11 @@
                     else $_SESSION["voted"] = false;
 
                 }    
+                else
+                {
+                    $emailErr = "Invalid email or password";
+                    $passwordErr = "Invalid email or password";
+                }
 
             }
             else echo "Could not find ID number";
@@ -59,8 +64,6 @@
     
     }
     
-
-
-
+    
     
 ?>

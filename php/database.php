@@ -21,8 +21,7 @@
             $this->conn = new mysqli($DBhost, $DBusername, $DBpassword, $DBname);
             if($this->conn === false)
                 die("Error: Failed to connect " . $this->conn->connect_error);
-            
-       
+              
          
         }
 
@@ -55,15 +54,6 @@
                 echo "Error: " . $sql . "<br>" . $this->conn->error;
         }
 
-        // returns the result
-        // public function findUser($id) {
-        //     $sql = "Select * from person where id_no=$id";
-        //     $result = $this->conn->query($sql);
-
-        //     return $result;
-        // }
-
-<<<<<<< HEAD
         // returns a bool
         public function checkUserExists($id) {
             $sql = "Select id_no from person where id_no=$id";
@@ -72,6 +62,7 @@
             return ($result->num_rows > 0);
         }
 
+        // its in the name, also returns a bool
         public function checkUserinIEC($id) {
             $sql = "SELECT id_no FROM ELECTORAL_STAFF WHERE id_no=$id";
             $result = $this->conn->query($sql);
@@ -79,6 +70,7 @@
             return ($result->num_rows > 0);
         }
 
+        //its in the name
         public function checkUserVoted($id) {
             $sql = "SELECT voted FROM PERSON WHERE id_no=$id";
             $result = $this->conn->query($sql);
@@ -86,21 +78,33 @@
             if ($row["voted"] == true)
                 return true;
             return false;
-        }
-
-              
-    }
-
-
- 
+        }              
     
-    
-=======
+        //its in the name
         public function addUser($id, $name, $mname, $surname, $email, $cell, $pass) {
             $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ? ,?)");
             $stmt->bind_param("sssssss", $id, $name, $mname, $surname, $email, $cell, $pass);
             $stmt->execute();
-        }        
+        }    
+        
+        public function getUserWardID($id) {
+            $sql = "SELECT ward_ID FROM PERSON WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();            
+            $wardID = $row["ward_ID"];
+
+            return $wardID;
+
+        }
+
+        public function getUserName($id) {
+            $sql = "SELECT f_name, l_name FROM PERSON WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();            
+            $name = $row["f_name"] ." ". $row["l_name"];
+
+            return $name;
+
+        }
     }
->>>>>>> 1e117c37ffc76e4d6e88305b9662f3c975642e0d
 ?>
