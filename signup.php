@@ -9,7 +9,7 @@
         <?php include_once("php/header.php") ?>
 
         <!--SIGN UP REG PAGE-->
-        <div class="center">
+        <div class="center" id="signup">
             <h1>Register</h1>
             <form method="post">
                 <div class="txt_field">
@@ -52,7 +52,7 @@
                     <span></span>
                     <label>Password</label>
                 </div>
-                <input type="submit" value="Login">
+                <input type="submit" value="Sign Up">
                 <div class="signup_link">
                     Already registered? <a href="login.php">Log In </a>
                 </div>
