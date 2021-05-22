@@ -6,6 +6,7 @@
     $email = $_POST["email"];
     $cell = $_POST["cell"];
     $pass = $_POST["pass"];
+    $ward = $_POST["ward"];
 
     $good = true;
     $nameErr = "";
@@ -16,6 +17,7 @@
     $passErr = "";
     $cellErr = "";
     $emailErr = "";
+    $wardErr = "";
 
     $db = Database::instance();
 
@@ -52,7 +54,13 @@
     } else
         $passErr = "";
 
+    if (!$db->checkWardExists($ward)) {
+        $wardErr = "No such ward exists";
+        $good = false;
+    } else
+        $wardErr = "";
+
     if ($good) {
-        $db->addUser($_POST["id"], $_POST["name"], $_POST["mname"], $_POST["surname"], $_POST["email"], $_POST["cell"], hashPass($_POST["pass"]));
+        $db->addUser($_POST["id"], $_POST["name"], $_POST["mname"], $_POST["surname"], $_POST["cell"], $_POST["email"], $_POST["address"], hashPass($_POST["pass"], 0, $ward));
     }
 ?>

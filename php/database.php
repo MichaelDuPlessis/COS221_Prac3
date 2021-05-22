@@ -22,8 +22,6 @@
             if($this->conn === false)
                 die("Error: Failed to connect " . $this->conn->connect_error);
             $this->conn->select_db("");
-       
-         
         }
 
         public function __destruct() {
@@ -63,10 +61,20 @@
         //     return $result;
         // }
 
-        public function addUser($id, $name, $mname, $surname, $email, $cell, $pass) {
-            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ? ,?)");
-            $stmt->bind_param("sssssss", $id, $name, $mname, $surname, $email, $cell, $pass);
-            $stmt->execute();
-        }        
+        public function addUser($id, $name, $mname, $surname, $cell, $email, $pass, $ward_id) {
+            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ? ,?, ?)");
+            $stmt->bind_param("ssssssssii", $id, $name, $mname, $surname, $cell, $email, $add, $pass, $ward_id, 0);
+            if ($stmt->execute())
+                echo 'success';
+            else
+                die("Error: " . $this->conn->mysqli->error);
+        }
+
+        public function checkWardExists($ward) {
+            $sql = "Select ward_id from ward where ward_id=$ward";
+            $result = $this->conn->query($sql);
+
+            return $result->num_rows > 0;
+        }
     }
 ?>
