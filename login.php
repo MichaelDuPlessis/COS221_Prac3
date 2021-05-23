@@ -7,6 +7,8 @@
     </head>
     <body>
         <?php include_once("php/header.php") ?>
+        <?php include_once("php/validate_login.php") ?>
+
 
         <!--ACTUAL LOGGING PAGE-->
         <div class="center">
@@ -14,7 +16,7 @@
             <form method="post">
                 <div class="txt_field">
                     <input type="text" name = "id" required>
-                    <span class = "invalid"><?php echo $passwordErr; ?></span>
+                    <span class = "invalid"><?php echo $emailErr; ?></span>
                     <label>ID Number</label>
                 </div>
                 <div class="txt_field">

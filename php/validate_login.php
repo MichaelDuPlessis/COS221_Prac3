@@ -20,18 +20,18 @@
     {
         if(empty(trim($_POST["id"])))
             $idErr = "Please enter email";
-        else $id = trim($_POST["email"]);
-        
+        else $id = trim($_POST["id"]);
+            
         //validate password
         if(empty(trim($_POST["password"])))
-            $passwordErr = "Please enter password";
+        $passwordErr = "Please enter password";
         else $password = trim($_POST["password"]);
-
+        
         if(empty($emailErr) && empty($passwordErr))
         {
             
             if ($db->findId($id) === true) {
-                               
+                                
                 if($db->validateUserPass($id,$password))
                 {
                     session_start();
@@ -59,7 +59,10 @@
                 }
 
             }
-            else echo "Could not find ID number";
+            else {
+                $emailErr = "Id not found";
+                $passwordErr = "";
+            }
         }
     
     }
