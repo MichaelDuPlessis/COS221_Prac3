@@ -37,7 +37,7 @@
         }
 
         // returns true if email is found
-        public function findEmail($email) {
+        public function checkEmailExists($email) {
             $sql = "Select id_no from person where email=$email";
             $result = $this->conn->query($sql);
 
@@ -61,9 +61,11 @@
         //     return $result;
         // }
 
-        public function addUser($id, $name, $mname, $surname, $cell, $email, $pass, $ward_id) {
-            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ? ,?, ?)");
-            $stmt->bind_param("ssssssssii", $id, $name, $mname, $surname, $cell, $email, $add, $pass, $ward_id, 0);
+        public function addUser($id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id) {
+            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $voted = 0;
+            settype($ward_id, "integer");
+            $stmt->bind_param("ssssssssii", $id, $name, $mname, $surname, $cell, $email, $addr, $pass, $voted, $ward_id);
             if ($stmt->execute())
                 echo 'success';
             else
@@ -72,6 +74,13 @@
 
         public function checkWardExists($ward) {
             $sql = "Select ward_id from ward where ward_id=$ward";
+            $result = $this->conn->query($sql);
+
+            return $result->num_rows > 0;
+        }
+
+        public function checkCellExists($cell) {
+            $sql = "Select id from person where cell=$cell";
             $result = $this->conn->query($sql);
 
             return $result->num_rows > 0;
