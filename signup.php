@@ -6,7 +6,7 @@
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
 
         <!-- php -->
-        <?php include_once "./php/validate_signup"; ?>
+        <?php include_once "./php/validate_signup.php"; ?>
     </head>
     <body>
         <?php include_once("php/header.php") ?>

@@ -27,7 +27,7 @@
         $passwordErr = "Please enter password";
         else $password = trim($_POST["password"]);
         
-        if(empty($emailErr) && empty($passwordErr))
+        if(empty($idErr) && empty($passwordErr))
         {
             
             if ($db->findId($id) === true) {
@@ -54,13 +54,13 @@
                 }    
                 else
                 {
-                    $emailErr = "Invalid email or password";
+                    $idErr = "Invalid email or password";
                     $passwordErr = "Invalid email or password";
                 }
 
             }
             else {
-                $emailErr = "Id not found";
+                $idErr = "Id not found";
                 $passwordErr = "";
             }
         }

@@ -6,8 +6,8 @@
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?php include_once("php/header.php") ?>
-        <?php include_once("php/validate_login.php") ?>
+        <?php include_once("./php/header.php") ?>
+        <?php include_once("./php/validate_login.php") ?>
 
 
         <!--ACTUAL LOGGING PAGE-->
@@ -16,7 +16,7 @@
             <form method="post">
                 <div class="txt_field">
                     <input type="text" name = "id" required>
-                    <span class = "invalid"><?php echo $emailErr; ?></span>
+                    <span class = "invalid"><?php echo $idErr; ?></span>
                     <label>ID Number</label>
                 </div>
                 <div class="txt_field">
