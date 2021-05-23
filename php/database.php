@@ -12,7 +12,7 @@
             return $instance;
         }
 
-        public function __construct() {
+        private function __construct() {
             $DBusername = "u20430168";
             $DBpassword = "RHBBQV2AGCFKHVN4DCEMTXNMSE7YCQWE";
             $DBhost = "wheatley.cs.up.ac.za";
@@ -21,7 +21,6 @@
             $this->conn = new mysqli($DBhost, $DBusername, $DBpassword, $DBname);
             if($this->conn === false)
                 die("Error: Failed to connect " . $this->conn->connect_error);
-            $this->conn->select_db("");
         }
 
         public function __destruct() {
@@ -53,13 +52,19 @@
                 echo "Error: " . $sql . "<br>" . $this->conn->error;
         }
 
-        // returns the result
-        // public function findUser($id) {
-        //     $sql = "Select * from person where id_no=$id";
-        //     $result = $this->conn->query($sql);
+        // returns a bool
+        public function checkUserExists($id) {
+            $sql = "Select id_no from person where id_no=$id";
+            $result = $this->conn->query($sql);
 
-        //     return $result;
-        // }
+            return ($result->num_rows > 0);
+        }
+
+        // its in the name, also returns a bool
+        public function checkUserinIEC($id) {
+            $sql = "SELECT id_no FROM ELECTORAL_STAFF WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+        }
 
         public function addUser($id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id) {
             $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -84,6 +89,37 @@
             $result = $this->conn->query($sql);
 
             return $result->num_rows > 0;
+            return ($result->num_rows > 0);
+        }
+
+        //its in the name
+        public function checkUserVoted($id) {
+            $sql = "SELECT voted FROM PERSON WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();
+            if ($row["voted"] == true)
+                return true;
+            return false;
+        }              
+        
+        public function getUserWardID($id) {
+            $sql = "SELECT ward_ID FROM PERSON WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();            
+            $wardID = $row["ward_ID"];
+
+            return $wardID;
+
+        }
+
+        public function getUserName($id) {
+            $sql = "SELECT f_name, l_name FROM PERSON WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();            
+            $name = $row["f_name"] ." ". $row["l_name"];
+
+            return $name;
+
         }
     }
 ?>
