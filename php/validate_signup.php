@@ -6,6 +6,7 @@
     $email = $_POST["email"];
     $cell = $_POST["cell"];
     $pass = $_POST["pass"];
+    $ward = $_POST["ward"];
 
     $good = true;
     $nameErr = "";
@@ -16,43 +17,63 @@
     $passErr = "";
     $cellErr = "";
     $emailErr = "";
+    $wardErr = "";
 
     $db = Database::instance();
 
+    // id
     if ($db->findId($id)) {
         $idErr = "ID already regsitered";
         $good = false;
     } else
         $idErr = "";
 
-    if ($db->findEmail($email)) {
-        $emailErr = "Email already regsitered";
-        $emailErr = false;
+    if (strlen($id) !== 0 && strlen($id) !== 13) {
+        $idErr = "Invalid ID";
+        $good = false;
     } else
-        $emailErr = strlen($email) === 0 ? "" : $emailErr;
+        $idErr = "";
 
-    $regexEmail = "/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
-    if (!preg_match($regexEmail, $email)) {
-        $emailErr = "Invalid email";
-        $emailErr = false;
-    } else
-        $emailErr = strlen($email) === 0 ? "" : $emailErr;
+    // email
+    if (strlen($email) !== 0) {
+        if ($db->checkEmailExists($email)) {
+            $emailErr = "Email already regsitered";
+            $emailErr = false;
+        } else
+            $emailErr = strlen($email) === 0 ? "" : $emailErr;
+    
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email";
+            $emailErr = false;
+        } else
+            $emailErr = strlen($email) === 0 ? "" : $emailErr;
+    }
 
-    $regexCell = "/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/";
-    if (!preg_match($regexCell, $cell)) {
+    // cell phone
+    $regexCell = "/d{10}/";
+    if (strlen($cell) !== 0 && !preg_match($regexCell, $cell)) {
         $cellErr = "Invalid phone number";
         $good = false;
     } else
         $cellErr = "";
 
-    $regexPass = "/^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*])(?=.{8,})/";
-    if (!preg_match($regexPass, $pass)) {
-        $passErr = "Invalid password";
+    // password
+    // $regexPass = "/^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*])(?=.{8,})/";
+    // if (strlen($pass) !== 0 && !preg_match($regexPass, $pass)) {
+    //     $passErr = "Invalid password";
+    //     $good = false;
+    // } else
+    //     $passErr = "";
+
+    // ward
+    if (!$db->checkWardExists($ward)) {
+        $wardErr = "No such ward exists";
         $good = false;
     } else
-        $passErr = "";
+        $wardErr = "";
 
+    // if all good
     if ($good) {
-        $db->addUser($_POST["id"], $_POST["name"], $_POST["mname"], $_POST["surname"], $_POST["email"], $_POST["cell"], hashPass($_POST["pass"]));
+        $db->addUser($_POST["id"], $_POST["name"], $_POST["mname"], $_POST["surname"], $_POST["cell"], $_POST["email"], $_POST["address"], hashPass($_POST["pass"]), $ward);
     }
 ?>
