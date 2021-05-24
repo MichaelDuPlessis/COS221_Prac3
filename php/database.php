@@ -64,6 +64,8 @@
         public function checkUserinIEC($id) {
             $sql = "SELECT id_no FROM ELECTORAL_STAFF WHERE id_no=$id";
             $result = $this->conn->query($sql);
+
+            return ($result->num_rows > 0);
         }
 
         public function addUser($id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id) {
@@ -119,7 +121,42 @@
             $name = $row["f_name"] ." ". $row["l_name"];
 
             return $name;
+        }
 
+        public function getUserPass($id) {
+            $sql = "SELECT password FROM PERSON WHERE id_no=$id";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();            
+            $pass = $row["password"];
+
+            return $pass;
+        }
+
+        public function updateUserAddress($id,$newAddress) {
+            $sql = $this->conn->prepare("UPDATE PERSON SET address = ? WHERE id_no = ?");
+            $sql->bind_param('ss',$newAddress,$id);
+            if (!$sql->execute()) {
+                die("Error updating user address!!");
+            } 
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         }
     }
 ?>

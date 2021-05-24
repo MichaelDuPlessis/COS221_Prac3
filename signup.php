@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Elections</title>
-        <!-- <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/> -->
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
 
         <!-- php -->
     </head>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="txt_field">
                     <input type="text" name="address" required>
-                    <span class="invalid"><?php echo $addressErr; ?></span>
+                    <span class="invalid"></span>
                     <label>Address</label>
                 </div>
                 <div class="txt_field">

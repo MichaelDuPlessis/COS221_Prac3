@@ -13,6 +13,7 @@
     $idErr = $passwordErr = $loginErr = "";
 
     require_once "./php/database.php";
+    require_once "./php/password.php";
 
     $db = Database::instance();
 
@@ -32,7 +33,9 @@
             
             if ($db->findId($id) === true) {
                                 
-                if($db->validateUserPass($id,$password))
+                $stored = $db->getUserPass($id);
+                
+                if(checkPass($password,$storedPass))
                 {
                     session_start();
                     
