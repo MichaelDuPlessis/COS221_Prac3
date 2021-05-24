@@ -1,5 +1,4 @@
 
-
 /*HEADER*/
 img {
     width: 95%;
@@ -8,12 +7,32 @@ img {
 
 html {
     background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     font-family: "Lato", sans-serif;
     transition: background-color .5s;
     background-color: black;
+    overflow: scroll;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    font-size: 80px;
+    border: 10px solid #f1f1f1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
   }
   
   .sidenav {
@@ -59,3 +78,59 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
+  .profileContent {
+    background-color: grey;
+    color: white;
+    margin-left: 400px;
+    margin-right: 300px;
+    padding: 15px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+ h1 {
+   margin-left: 50px;
+   color: white;
+ }
+
+  button[type=submit] {
+    background-color: rgb(13, 97, 1);
+    margin-left: 550px;
+    width: 100px;
+    height: 45px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 3px rgb(21, 56, 0);
+    margin-bottom: 20px;
+    align-items: center;
+   }
+  
+  button[type=submit]:hover {
+    background-color: rgb(23, 173, 3);
+  }
+
+button[type=submit]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+ input[type=text] {
+   align-items: center;
+   height: 30px;
+   width: 500px;
+   margin-bottom: 10px;
+ }
+
+ label {
+   font-size: 20px;
+   margin-left: 50px;
+ }
+
