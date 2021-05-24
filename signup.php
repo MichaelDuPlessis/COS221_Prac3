@@ -33,6 +33,9 @@
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email">
 
+                    <label for="wardID"><b>Ward ID</b></label>
+                    <input type="text" placeholder="Enter Ward ID" name="wardID" required>
+
                     <label for="address"><b>Address</b></label>
                     <input type="text" placeholder="Enter Address" name="address" required>
 
@@ -47,61 +50,5 @@
                 </div>
             </form>
         </div>
-
-
-
-
-        <!--SIGN UP REG PAGE
-        <div class="center" id="signup">
-            <h1>Register</h1>
-            <form method="post">
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>ID Number</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Name</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text">
-                    <span></span>
-                    <label>Middle-Names</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Surname</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Cellphone</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Email</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Address</label>
-                </div>
-                <div class="txt_field">
-                    <input type="password" required>
-                    <span></span>
-                    <label>Password</label>
-                </div>
-                <input type="submit" value="Sign Up">
-                <div class="signup_link">
-                    Already registered? <a href="login.php">Log In </a>
-                </div>
-
-            </form>
-
-        </div>-->
     </body>
 </html>

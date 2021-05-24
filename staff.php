@@ -45,16 +45,76 @@
         }
 
         function register(){
-            document.getElementById("content").innerHTML = "<h1>Profile</h1>"+
-            "<div class='profileContent'>" +
-                "<p> Name </p>" +
-                "<p> Surname </p>" +
-                "<p> ID </p>" +
-                "<p> Email </p>" +
-                "<p> Cellphone</p>" +
-                "<p> Address</p>" +
-            "</div>"+
-            "<button type='button' class='btn'>Update Information</button>";
+            document.getElementById("content").innerHTML = "<div class='voterContent'>" +
+            "<h1>Voter Information</h1>"+
+                "<table>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='id'><b>SA ID Number  </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='text' placeholder='Enter SA ID Number' name='id' required> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='name'><b>Name  </b></label>"+
+                        "</td>"+    
+                        "<td>"+
+                            "<input type='text' placeholder='Enter Name'  name='name' required> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='middle_name'><b>MiddleName/s </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='text' placeholder='Enter Middle Name/s' name='middle_name'> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='surname'><b>Surname  </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='text' placeholder='Enter Surname' name='surname' required> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='cellphone'><b>Cellphone  </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='text' placeholder='Enter Cellphone' name='cellphone' required> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='email'><b>Email  </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='text' placeholder='Enter Email' name='email'> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='address'><b>Address  </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='text' placeholder='Enter Address' name='address' required> <br/>"+
+                        "</td>"+
+                    "</tr>"+
+                    "<tr>"+
+                        "<td>"+
+                            "<label for='psw><b>Password  </b></label>"+
+                        "</td>"+
+                        "<td>"+
+                            "<input type='password' placeholder='Enter Password' name='psw' readonly>"+
+                        "</td>"+
+                    "</tr>"+
+               "</table>"+
+               "<button type='submit'>Register </button>"+
+            "</div>";
             closeNav();
         }
 

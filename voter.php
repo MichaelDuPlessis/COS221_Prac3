@@ -44,7 +44,7 @@
 
         function profile(){
             document.getElementById("content").innerHTML = ""+
-            "<div class='profileContent'>" +
+            "<div class='voterContent'>" +
             "<h1>Profile</h1>"+
                 "<table>"+
                     "<tr>"+
@@ -118,7 +118,26 @@
         }
 
         function ballot(){
-            document.getElementById("content").innerHTML = "<h1>Ballot</h1>";
+            document.getElementById("content").innerHTML = "<div class='ballotContent'>"+
+                "<div class='candidateContent'>"+
+                    "<h2> Candidate Vote </h2>"+
+                        "<div class='candidate'>"+
+                            "<input type='checkbox' id='candidate' name='candidate' value='CaraGrobler'>"+
+                            "<label id='voting' for='candidate'>Cara Grobler</label><br>"+
+                        "</div>"+
+                "</div>"+
+                "<div class='partyContent'>"+
+                    "<h2> Party Vote </h2>"+
+                    "<div class='party'>"+
+                        "<input type='checkbox' id='party' name='party' value='ANC'>"+
+                        "<label id='voting' for='party'>ANC</label><br>"+
+
+                        "<input type='checkbox' id='party' name='party' value='DA'>"+
+                        "<label id='voting' for='party'>DA</label><br>"+
+                    "</div"+
+                "</div>"+
+                "<button type='submit' id='voteBtn'>Vote</button>"+
+            "</div>";
             closeNav();
         }
         
