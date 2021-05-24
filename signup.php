@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Elections</title>
+        <title>Municipality Elections</title>
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
 
         <!-- php -->
@@ -11,58 +11,42 @@
         <?php include_once "./php/validate_signup.php"; ?>
         <?php include_once("php/header.php"); ?>
 
-        <!--SIGN UP REG PAGE-->
         <div class="center">
-            <h1>Register</h1>
             <form method="post">
-                <div class="txt_field">
-                    <input type="text" name="id" required>
-                    <span class="invalid"><?php echo $idErr; ?></span>
-                    <label>ID Number</label>
+                <div class="imgcontainer">
+                    <img src="img/signup.png" alt="Avatar" class="avatar">
                 </div>
-                <div class="txt_field">
-                    <input type="text" name="name" required>
-                    <span class="invalid"><?php echo $nameErr; ?></span>
-                    <label>Name</label>
+
+                <div class="container">
+                    <label for="id"><b>SA ID Number</b></label>
+                    <input type="text" placeholder="Enter SA ID Number" name="id" required>
+
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name" name="name" required>
+
+                    <label for="middle_name"><b>Middle Name/s</b></label>
+                    <input type="text" placeholder="Enter Middle Name/s" name="middle_name">
+
+                    <label for="surname"><b>Surname</b></label>
+                    <input type="text" placeholder="Enter Surname" name="surname" required>
+
+                    <label for="cellphone"><b>Cellphone</b></label>
+                    <input type="text" placeholder="Enter Cellphone" name="cellphone" required>
+
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email">
+
+                    <label for="address"><b>Address</b></label>
+                    <input type="text" placeholder="Enter Address" name="address" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                        
+                    <button type="submit">Sign Up</button>
                 </div>
-                <div class="txt_field">
-                    <input type="text" name="mname" required>
-                    <span class="invalid"><?php echo $mnameErr; ?></span>
-                    <label>Middle-Names</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="surname" required>
-                    <span class="invalid"><?php echo $surnameErr; ?></span>
-                    <label>Surname</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="cell" required>
-                    <span class="invalid"><?php echo $cellErr; ?></span>
-                    <label>Cellphone</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text"  name="email" required>
-                    <span class="invalid"><?php echo $emailErr; ?></span>
-                    <label>Email</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="address" required>
-                    <span class="invalid"></span>
-                    <label>Address</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" name="ward" required>
-                    <span class="invalid"><?php echo $wardErr; ?></span>
-                    <label>Ward</label>
-                </div>
-                <div class="txt_field">
-                    <input type="password" name="pass" required>
-                    <span class="invalid"><?php echo $passErr; ?></span>
-                    <label>Password</label>
-                </div>
-                <input type="submit" value="Login" name="conpass">
-                <div class="signup_link">
-                    Already registered? <a href="login.php">Sign Up</a>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <span class="signup">Already Registered? <a href="login.php">Login</a></span>
                 </div>
             </form>
         </div>
