@@ -99,6 +99,16 @@ body {
     margin-bottom: 40px;
   }
 
+  .electionInfo {
+    background-color: #1c4a34;
+    color: black;
+    margin-left: 400px;
+    margin-right: 300px;
+    padding: 15px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
  h1 {
    margin-left: 50px;
    color: white;
@@ -109,7 +119,7 @@ body {
  }
 
   button[type=submit] {
-    background-color: rgb(13, 97, 1);
+    background-color: black;
     margin-left: 550px;
     width: 100px;
     height: 45px;
@@ -183,7 +193,7 @@ button[type=submit]:active {
  }
 
  #voteBtn {
-  background-color: rgb(13, 97, 1);
+  background-color: rgb(0, 0, 0);
   width: 100px;
   height: 45px;
   border: none;
@@ -228,6 +238,10 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+}
+
+#combo {
+  width: 100px;
 }
 
 

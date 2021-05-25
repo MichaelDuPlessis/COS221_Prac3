@@ -9,10 +9,10 @@
         <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="staffHome.php" class="home">Home</a>
-            <a href="voterReg.php" class="voterReg">Voter Registration</a>
-            <a href="elecInfo.php" class="electionInfo">Election Information</a>
-            <a href="elecReport.php" class="elecReport">Election Report</a>
+            <a href="staffHome.php" class="home" onclick="closeNav()">Home</a>
+            <a href="voterReg.php" class="voterReg" onclick="closeNav()">Voter Registration</a>
+            <a href="elecInfo.php" class="electionInfo" onclick="closeNav()">Election Information</a>
+            <a href="elecReport.php" class="elecReport" onclick="closeNav()">Election Report</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
