@@ -12,7 +12,6 @@
             <a href="staffHome.php" class="home" onclick="closeNav()">Home</a>
             <a href="voterReg.php" class="voterReg" onclick="closeNav()">Voter Registration</a>
             <a href="elecInfo.php" class="electionInfo" onclick="closeNav()">Election Information</a>
-            <a href="elecReport.php" class="elecReport" onclick="closeNav()">Election Report</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
@@ -29,7 +28,7 @@
                                 <label for='id'><b>SA ID Number  </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter SA ID Number' name='id' readonly> <br/>
+                                <input type='text' placeholder='Enter SA ID Number' name='id' required> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -37,7 +36,7 @@
                                 <label for='name'><b>Name  </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Name'  name='name' readonly> <br/>
+                                <input type='text' placeholder='Enter Name'  name='name' required> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -45,7 +44,7 @@
                                 <label for='middle_name'><b>MiddleName/s </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Middle Name/s' name='middle_name' readonly> <br/>
+                                <input type='text' placeholder='Enter Middle Name/s' name='middle_name'> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -53,7 +52,7 @@
                                 <label for='surname'><b>Surname  </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Surname' name='surname' readonly> <br/>
+                                <input type='text' placeholder='Enter Surname' name='surname' required> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +60,7 @@
                                 <label for='cellphone'><b>Cellphone  </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Cellphone' name='cellphone' readonly> <br/>
+                                <input type='text' placeholder='Enter Cellphone' name='cellphone'> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -69,7 +68,7 @@
                                 <label for='email'><b>Email  </b></label>
                             </td>
                             <td>
-                            <input type='text' placeholder='Enter Email' name='email' readonly> <br/>
+                            <input type='text' placeholder='Enter Email' name='email'> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -87,7 +86,7 @@
                                 <label for='pos'><b>Post  </b></label>
                             </td>
                             <td>
-                            <input type='text' placeholder='Enter Post' name='pos' readonly> <br/>
+                            <input type='text' placeholder='Enter Post' name='pos' required> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -109,7 +108,7 @@
                                 <label for='pname'><b>Party Name  </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Political Party Name'  name='pname' readonly> <br/>
+                                <input type='text' placeholder='Enter Political Party Name'  name='pname' required> <br/>
                             </td>
                         </tr>
                         <tr>
@@ -117,7 +116,7 @@
                                 <label for='abrv'><b>Abbreviation </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Party Abbreviation' name='abrv' readonly> <br/>
+                                <input type='text' placeholder='Enter Party Abbreviation' name='abrv' required> <br/>
                             </td>
                         </tr>
                 </table>
