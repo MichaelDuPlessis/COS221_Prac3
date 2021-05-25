@@ -167,5 +167,18 @@
             $sql->close();
 
         }
+
+        public function getUserDetailsAll($id) {
+            $stmt = $this->conn->prepare("select name, email from users where email = ?");
+            $stmt->bind_param("s", $email);
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
+
+            $stmt->bind_result($name, $email);
+            if (!$stmt->fetch())
+                die("Error: Failed to connect to database");
+
+            return array("name" => $name, "email" => $email);
+        }
     }
 ?>

@@ -6,10 +6,10 @@
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
     {
         if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
-            echo '<script> window.location.href = "./voter.php" </script>'; 
+            echo '<script> window.location.href = "./voterHome.php" </script>'; 
         }
         else {
-            echo '<script> window.location.href = "./voter.php" </script>'; 
+            echo '<script> window.location.href = "./voterHome.php" </script>'; 
             
         }
 
@@ -66,10 +66,10 @@
 
                         
                         if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
-                            echo '<script> window.location.href = "./voter.php" </script>'; 
+                            echo '<script> window.location.href = "./voterHome.php" </script>'; 
                         }
                         else {
-                            echo '<script> window.location.href = "./voter.php" </script>'; 
+                            echo '<script> window.location.href = "./voterHome.php" </script>'; 
                             
                         }
                                                

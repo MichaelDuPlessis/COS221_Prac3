@@ -12,7 +12,7 @@
             <a href="voterHome.php" class="home" onclick="home()">Home</a>
             <a href="profile.php" class="profile" onclick="profile()">Profile</a>
             <a href="ballot.php" class="ballot" onclick="ballot()">Voting Ballot</a>
-            <a href="#" class="logout">Log Out</a>
+            <a href="#" class="logout" onclick="logout()">Log Out</a>
         </div>
 
         <div id="main">
@@ -36,6 +36,11 @@
             document.getElementById("main").style.marginLeft= "0";
             document.body.style.backgroundColor = "black";
             }
+
+            function logout() {
+                window.location.href = './php/logout.php';
+            }
+
         </script>
     </body>
 </html>
