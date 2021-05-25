@@ -95,7 +95,7 @@ body {
  }
 
  h2 {
-  color: white;
+  color: black;
  }
 
   button[type=submit] {
@@ -138,33 +138,34 @@ button[type=submit]:active {
 
  .ballotContent {
    width: 1200px;
-   background-color: #1c4a34;
    margin-left: 100px;
    margin-right: 100px;
    height: auto;
    padding: 20px;
+   background-color: #1c4a34;
  }
 
  .candidateContent {
    width: 600px;
    float: left;
    border-top: 15px solid black;
-   border-left: 15px solid black;
    border-right: 15px solid black;
    padding: 5px;
    height: auto;
+   background-color: #ebebe0;
  }
 
  .partyContent {
   border-top: 15px solid black;
-  border-right: 15px solid black;
   padding: 5px;
   height: auto;
+  background-color: #ebebe0;
  }
 
  #voting {
-   color: white;
+   color: black;
    margin-left: 0;
+   margin-bottom: 5px;
  }
 
  input[type=checkbox] {
@@ -173,7 +174,6 @@ button[type=submit]:active {
 
  #voteBtn {
   background-color: rgb(13, 97, 1);
-  margin-left: 550px;
   width: 100px;
   height: 45px;
   border: none;
@@ -184,7 +184,8 @@ button[type=submit]:active {
   cursor: pointer;
   outline: none;
   box-shadow: 2px 3px rgb(21, 56, 0);
-  margin-bottom: 20px;
+  margin-top: 100px;
+  margin-left: 400px;
  }
 
  #voteBtn:hover {
@@ -192,10 +193,36 @@ button[type=submit]:active {
 }
 
 #voteBtn:active {
-background-color: #3e8e41;
-box-shadow: 0 5px #666;
-transform: translateY(4px);
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
+
+.candidate {
+  font-size: 16px;
+}
+
+.party {
+  font-size: 16px;
+}
+
+table {
+  background-color: rgb(216, 216, 216);
+  border-collapse: collapse;
+  color: black;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #a8a7a7;
+}
+
 
 
 
