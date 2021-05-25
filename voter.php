@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Municipality Elections</title>
+        <title>Voters Portal</title>
         <meta charset="UTF-8">
         <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?php include_once("php/header.php") ?>
+        <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#" class="home" onclick="home()">Home</a>
-            <a href="#" class="profile" onclick="profile()">Profile</a>
-            <a href="#" class="ballot" onclick="ballot()">Voting Ballot</a>
+            <a href="home.php" class="home">Home</a>
+            <a href="#" class="profile">Profile</a>
+            <a href="#" class="ballot">Voting Ballot</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
@@ -35,11 +35,6 @@
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft= "0";
         document.body.style.backgroundColor = "black";
-        }
-
-        function home(){
-            document.getElementById("content").innerHTML = "<div class='bg-text'>HOME</div>";
-            closeNav();
         }
 
         function profile(){

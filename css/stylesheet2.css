@@ -80,8 +80,8 @@ body {
   }
 
   .voterContent {
-    background-color: grey;
-    color: white;
+    background-color: #1c4a34;
+    color: black;
     margin-left: 400px;
     margin-right: 300px;
     padding: 15px;
@@ -220,7 +220,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #a8a7a7;
+  
 }
 
 
