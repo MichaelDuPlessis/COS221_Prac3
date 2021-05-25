@@ -28,35 +28,38 @@
 
         // returns true if user is found
         public function findId($id) {
-            $sql = "Select id_no from person where id_no=$id";
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare("Select id_no from person where id_no=?");
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
 
-            return $result->num_rows > 0;
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return $stmt->num_rows() > 0;
         }
 
         // returns true if email is found
         public function checkEmailExists($email) {
-            $sql = "Select id_no from person where email=$email";
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare("Select id_no from person where email=?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
 
-            return $result->num_rows > 0;
-        }
+            $stmt->bind_result($data);
+            $stmt->fetch();
 
-        // returns a boolean whether the password matches the stored password
-        public function validateUserPass($id, $pass) {
-            $sql = "SELECT * FROM PERSON WHERE id_no = $id AND password = $pass";
-            if($this->conn->query($sql) === true)
-                echo "Password and id checked against parametres";
-            else
-                echo "Error: " . $sql . "<br>" . $this->conn->error;
+            return $stmt->num_rows() > 0;
         }
 
         // returns a bool
         public function checkUserExists($id) {
-            $sql = "Select id_no from person where id_no=$id";
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare("Select id_no from person where id_no=?");
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
 
-            return ($result->num_rows > 0);
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return $stmt->num_rows() > 0;
         }
 
         
@@ -74,18 +77,26 @@
         }
         
         public function checkWardExists($ward) {
-            $sql = "Select ward_id from ward where ward_id=$ward";
-            $result = $this->conn->query($sql);
-            
-            return $result->num_rows > 0;
+            $stmt = $this->conn->prepare("Select ward_id from ward where ward_id=?");
+            $stmt->bind_param("s", $ward);
+            $stmt->execute();
+
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return $stmt->num_rows() > 0;
         }
         
         public function checkCellExists($cell) {
             $sql = "Select id from person where cell=$cell";
-            $result = $this->conn->query($sql);
-            
-            return $result->num_rows > 0;
-            return ($result->num_rows > 0);
+            $stmt = $this->conn->prepare("Select id from person where cell=?");
+            $stmt->bind_param("s", $cell);
+            $stmt->execute();
+
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return $stmt->num_rows() > 0;
         }
         
         // its in the name, also returns a bool
