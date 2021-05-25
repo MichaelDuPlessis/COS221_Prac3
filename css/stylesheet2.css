@@ -89,6 +89,16 @@ body {
     margin-bottom: 40px;
   }
 
+  .voterInfo {
+    background-color: #1c4a34;
+    color: black;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 15px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
  h1 {
    margin-left: 50px;
    color: white;
@@ -169,7 +179,7 @@ button[type=submit]:active {
  }
 
  input[type=checkbox] {
-   margin-left: 20px;
+   font-size: 12px;
  }
 
  #voteBtn {
@@ -211,6 +221,7 @@ table {
   border-collapse: collapse;
   color: black;
   width: 100%;
+  align-items: center;
 }
 
 td, th {
@@ -219,9 +230,6 @@ td, th {
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  
-}
 
 
 

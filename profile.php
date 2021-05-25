@@ -73,10 +73,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <label for='address'><b>Address  </b></label>
+                            <label for='address'><b>Address </b></label>
                         </td>
                         <td>
+                            <form method="post">
                             <input type='text' placeholder='Enter Address' name='address' required> <br/>
+                            </form>
                         </td>
                     </tr>
                </table>
