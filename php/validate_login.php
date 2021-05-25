@@ -41,9 +41,7 @@
                 if ($db->findId($id) === true) {
                     
                     $stored = $db->getUserPass($id);
-                    echo '<script> console.log('.$stored.'); </script>'; 
-                    
-                    
+                            
                     if(checkPass($password,$stored))
                     {
                         session_start();

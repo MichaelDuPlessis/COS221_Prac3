@@ -179,16 +179,19 @@
         }
 
         public function getUserDetailsAll($id) {
-            $stmt = $this->conn->prepare("select name, email from users where email = ?");
-            $stmt->bind_param("s", $email);
-            if (!$stmt->execute())
+            $sql = $this->conn->prepare("select f_name, m_name, l_name, cell, email, address  from person where id_no = ?");
+            if ($sql===false) {
+                die($this->conn->error);
+            }
+            $sql->bind_param("s", $id);
+            if (!$sql->execute())
                 die("Error: Failed to connect to database");
 
-            $stmt->bind_result($name, $email);
-            if (!$stmt->fetch())
+            $sql->bind_result($fname, $mname, $lname, $cell, $email, $address);
+            if (!$sql->fetch())
                 die("Error: Failed to connect to database");
 
-            return array("name" => $name, "email" => $email);
+            return array("f_name" => $fname, "m_name" => $mname, "l_name" => $lname, "cell" => $cell, "email" => $email, "address" => $address);
         }
 
         public function getCandidates($wardID) {
