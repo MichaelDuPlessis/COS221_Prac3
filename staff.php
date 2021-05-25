@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Municipality Elections</title>
+        <title>Staff Portal</title>
         <meta charset="UTF-8">
         <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -64,6 +64,7 @@
                     "<td>Good day</td>"+
                 "</tr>"+
                 "</table>"+
+                "<button type='submit'
             "</div>";
             closeNav();
         }
