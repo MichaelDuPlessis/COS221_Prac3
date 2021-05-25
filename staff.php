@@ -45,16 +45,26 @@
         }
 
         function register(){
-            document.getElementById("content").innerHTML = "<h1>Profile</h1>"+
-            "<div class='profileContent'>" +
-                "<p> Name </p>" +
-                "<p> Surname </p>" +
-                "<p> ID </p>" +
-                "<p> Email </p>" +
-                "<p> Cellphone</p>" +
-                "<p> Address</p>" +
-            "</div>"+
-            "<button type='button' class='btn'>Update Information</button>";
+            document.getElementById("content").innerHTML = "<div class='voterContent'>" +
+            "<h1>Voter Information</h1>"+
+                "<table>"+
+                "<tr>"+
+                    "<th>ID Number</th>"+
+                    "<th>Name</th>"+
+                    "<th>MiddleName/s</th>"+
+                    "<th>Surname</th>"+
+                    "<th>Cellphone</th>"+
+                    "<th>Email</th>"+
+                    "<th>Address</th>"+
+                "</tr>"+
+                "<tr>"+
+                    "<td>Hello</td>"+
+                "</tr>"+
+                "<tr>"+
+                    "<td>Good day</td>"+
+                "</tr>"+
+                "</table>"+
+            "</div>";
             closeNav();
         }
 
