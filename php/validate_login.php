@@ -6,92 +6,94 @@
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
     {
         if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
-            
+            echo '<script> window.location.href = "./voter.php" </script>'; 
         }
         else {
             echo '<script> window.location.href = "./voter.php" </script>'; 
             
         }
-        // echo `
-        // <script>
-        // window.location.href = './voter.php'
-        // </script>`;
-        // else echo `
-        // <script>
-        // console.log("masepoes");
-        // window.location.href = './voter.php'
-        // </script>`;
-        
-        // exit;
+
     }
-
-    
-
-    $id = $password = "";
-    $idErr = $passwordErr = $loginErr = "";
-    
-    require_once "./php/database.php";
-    require_once "./php/password.php";
-    
-    $db = Database::instance();
-    
-    if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
-    {
-        if(empty(trim($_POST["id"])))
-        $idErr = "Please enter email";
-        else
-        $id = trim($_POST["id"]);
+    else {
+        $id = $password = "";
+        $idErr = $passwordErr = $loginErr = "";
         
-        //validate password
-        if(empty(trim($_POST["psw"])))
-        $passwordErr = "Please enter password";
-        else $password = trim($_POST["psw"]);
+        require_once "./php/database.php";
+        require_once "./php/password.php";
         
-        if(empty($idErr) && empty($passwordErr))
+        $db = Database::instance();
+        
+        if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
         {
+            if(empty(trim($_POST["id"])))
+            $idErr = "Please enter email";
+            else
+            $id = trim($_POST["id"]);
             
-            if ($db->findId($id) === true) {
+            //validate password
+            if(empty(trim($_POST["psw"])))
+            $passwordErr = "Please enter password";
+            else $password = trim($_POST["psw"]);
+            
+            if(empty($idErr) && empty($passwordErr))
+            {
                 
-                $stored = $db->getUserPass($id);
-                echo '<script> console.log('.$stored.'); </script>'; 
-                
-                
-                if(checkPass($password,$stored))
-                {
-                    session_start();
+                if ($db->findId($id) === true) {
+                    
+                    $stored = $db->getUserPass($id);
+                    echo '<script> console.log('.$stored.'); </script>'; 
                     
                     
-                    $_SESSION["loggedin"] = true;
-                    $_SESSION["id"] = $id;
-                    $name = $db->getUserName($id);
-                    $_SESSION["name"] = $name;
-                    $wardID = $db->getUserWardID($id);
-                    $_SESSION["wardID"] = $wardID;
-    
-                    if ($db->checkUserinIEC($id) === true)
-                        $_SESSION["isIEC"] = true;
-                    else $_SESSION["isIEC"] = false;
-    
-                    if ($db->checkUserVoted($id) === true)
-                        $_SESSION["voted"] = true;
-                    else $_SESSION["voted"] = false;
+                    if(checkPass($password,$stored))
+                    {
+                        session_start();
+                        
+                        
+                        $_SESSION["loggedin"] = true;
+                        $_SESSION["id"] = $id;
+                        $name = $db->getUserName($id);
+                        $_SESSION["name"] = $name;
+                        $wardID = $db->getUserWardID($id);
+                        $_SESSION["wardID"] = $wardID;
+        
+                        if ($db->checkUserinIEC($id) === true)
+                            $_SESSION["isIEC"] = true;
+                        else $_SESSION["isIEC"] = false;
+        
+                        if ($db->checkUserVoted($id) === true)
+                            $_SESSION["voted"] = true;
+                        else $_SESSION["voted"] = false;
 
-                }    
-                else
-                {
-                    $idErr = "Invalid email or password";
-                    $passwordErr = "Invalid email or password";
+                        
+                        if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
+                            echo '<script> window.location.href = "./voter.php" </script>'; 
+                        }
+                        else {
+                            echo '<script> window.location.href = "./voter.php" </script>'; 
+                            
+                        }
+                                               
+                    }    
+                    else
+                    {
+                        $idErr = "Invalid email or password";
+                        $passwordErr = "Invalid email or password";
+                    }
+    
                 }
-
+                else {
+                    $idErr = "Id not found";
+                    $passwordErr = "";
+                }
             }
-            else {
-                $idErr = "Id not found";
-                $passwordErr = "";
-            }
+        
         }
-    
+      
+        
     }
+
     
-    
+
+      
     
 ?>

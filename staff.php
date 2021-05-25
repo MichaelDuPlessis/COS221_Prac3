@@ -13,7 +13,7 @@
             <a href="#" class="Voter Registration" onclick="register()">Voter Registration</a>
             <a href="#" class="Voting Info" onclick="electionInfo()">Election Information</a>
             <a href="#" class="Election Reports" onclick="report()">Election Report</a>
-            <a href="#" class="logout">Log Out</a>
+            <a href="#" class="logout" onclick="logout()">Log Out</a>
         </div>
 
         <div id="main">
@@ -77,6 +77,15 @@
             document.getElementById("content").innerHTML = "<h1>Info</h1>";
             closeNav();
         }        
+
+        function logout() {
+            console.log('here');
+            <?php
+                 session_unset();
+            ?>
+            window.location.href = "./login.php";
+            
+        }
         
         </script>
     </body>

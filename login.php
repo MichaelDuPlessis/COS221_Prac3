@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Municipality Elections</title>
-        <!-- <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/> -->
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <?php include_once("./php/header.php") ?>
-        <?php include_once("./php/validate_login.php") ?>
+        <?php include_once("./php/validate_login.php"); ?>
 
 
         <div class="center1">
-            <form method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <div class="imgcontainer">
                     <img src="img/login.png" alt="Avatar" class="avatar">
                 </div>
@@ -55,5 +55,12 @@
             </form>
 
         </div>-->
+
+        <script>
+            function refresh() {
+                window.location.href = './php/checkLogged.php';
+            }
+        </script>
+
     </body>
 </html>

@@ -12,7 +12,7 @@
             <a href="#" class="home" onclick="home()">Home</a>
             <a href="#" class="profile" onclick="profile()">Profile</a>
             <a href="#" class="ballot" onclick="ballot()">Voting Ballot</a>
-            <a href="#" class="logout">Log Out</a>
+            <a href="#" class="logout" onclick="logout()">Log Out</a>
         </div>
 
         <div id="main">
@@ -146,6 +146,15 @@
             "</div>";
             closeNav();
         }
+
+        
+        function logout() {
+            window.location.href = './php/logout.php';
+            
+        }
+
+        
+        
         
         </script>
     </body>
