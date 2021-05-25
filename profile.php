@@ -90,12 +90,8 @@
                         </td>
                         <td>
                             <form method="post">
-<<<<<<< HEAD
-                            <input type='text' placeholder='Enter Address' name='address' required> <br/>
-=======
                                 <input type='text' name = "address" placeholder=<?php echo $info["address"];?> name='address' required> <br/>
                                 <button type='submit'>Update </button>
->>>>>>> 498c9b270ec44b18853ccfd6ed9d27c82a2cc1e8
                             </form>
                         </td>
                     </tr>
