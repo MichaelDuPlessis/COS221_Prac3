@@ -20,34 +20,34 @@
         </div>
 
         <div class="content" id="content">
-        <div class='voterInfo'>
-            <h1>Voter Information</h1>
-                <table>
-                <tr>
-                    <th>ID Number</th>
-                    <th>Name</th>
-                    <th>MiddleName/s</th>
-                    <th>Surname</th>
-                    <th>Cellphone</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Approve Registration</th>
-                </tr>
-                <tr>
-                    <td>0105020082084</td>
-                    <td>Cara</td>
-                    <td>Mia</td>
-                    <td>Grobler</td>
-                    <td>0829772356</td>
-                    <td>cara@gmail.com</td>
-                    <td>Cornwall Hill</td>
-                    <td><input type="checkbox" name="approve"></td>
-                </tr>
-                <tr>
-                    <td>Good day</td>
-                </tr>
-                </table>
+        <form method="post">
+            <div class='voterInfo'>
+                <h1>Voter Information</h1>
+                    <table>
+                    <tr>
+                        <th>ID Number</th>
+                        <th>Name</th>
+                        <th>MiddleName/s</th>
+                        <th>Surname</th>
+                        <th>Cellphone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Approve Registration</th>
+                    </tr>
+                    <?php include_once "./php/voterValid.php"; ?>
+                        <!-- <td>0105020082084</td>
+                        <td>Cara</td>
+                        <td>Mia</td>
+                        <td>Grobler</td>
+                        <td>0829772356</td>
+                        <td>cara@gmail.com</td>
+                        <td>Cornwall Hill</td>
+                        <td><input type="checkbox" name="approve"></td> -->
+                    </table>
+                    <button type="submit">Submit</button></
             </div>
+            <?php include_once "./php/voterValidSubmit.php"; ?>
+        </form>
         </div>
 
         <script>

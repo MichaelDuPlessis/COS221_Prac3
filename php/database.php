@@ -263,5 +263,36 @@
             if (!$stmt->execute())
                 die("Error: Failed to connect to database");
         }
+
+        public function setVerified($id) {
+            $stmt = $this->conn->prepare("update person set verified_IEC=true where id_no=?");
+            $stmt->bind_param("i", $id);
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
+        }
+
+        public function getUnverified() {
+            $stmt = $this->conn->prepare("Select id_no, f_name, m_name, l_name, cell, email, address from person where verified_IEC = 0");
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
+            $stmt->bind_result($id, $fname, $mname, $lname, $cell, $email, $addr);
+
+            $people = array();
+            $i = 0;
+            while ($stmt->fetch()) {
+                $people[$i] = array(
+                    "id" => $id,
+                    "fname" => $fname,
+                    "mname" => $mname,
+                    "lname" => $lname,
+                    "cell" => $cell,
+                    "email" => $email,
+                    "addr" => $addr
+                );
+                $i++;
+            }
+
+            return $people;
+        }
     }
 ?>
