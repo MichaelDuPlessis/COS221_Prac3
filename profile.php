@@ -6,6 +6,19 @@
         <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+    <?php 
+        require_once "./php/database.php";
+        require_once "./php/validate_address.php";
+
+        session_start();
+        
+        $db = Database::instance();
+        $id = $_SESSION["id"];
+
+        $info = $db->getUserDetailsAll($id);
+    ?>
+
+    
         <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -28,7 +41,7 @@
                             <label for='id'><b>SA ID Number  </b></label>
                         </td>
                         <td>
-                            <input type='text' placeholder='Enter SA ID Number' name='id' readonly> <br/>
+                            <input type='text' placeholder=<?php echo $id;?> name='id' readonly> <br/>
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +49,7 @@
                             <label for='name'><b>Name  </b></label>
                         </td>
                         <td>
-                            <input type='text' placeholder='Enter Name'  name='name' readonly> <br/>
+                            <input type='text' placeholder=<?php echo $info["f_name"];?>  name='name' readonly> <br/>
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +57,7 @@
                             <label for='middle_name'><b>MiddleName/s </b></label>
                         </td>
                         <td>
-                            <input type='text' placeholder='Enter Middle Name/s' name='middle_name' readonly> <br/>
+                            <input type='text' placeholder=<?php echo $info["m_name"];?> name='middle_name' readonly> <br/>
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +65,7 @@
                             <label for='surname'><b>Surname  </b></label>
                         </td>
                         <td>
-                            <input type='text' placeholder='Enter Surname' name='surname' readonly> <br/>
+                            <input type='text' placeholder=<?php echo $info["l_name"];?> name='surname' readonly> <br/>
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +73,7 @@
                             <label for='cellphone'><b>Cellphone  </b></label>
                         </td>
                         <td>
-                            <input type='text' placeholder='Enter Cellphone' name='cellphone' readonly> <br/>
+                            <input type='text' placeholder=<?php echo $info["cell"];?> name='cellphone' readonly> <br/>
                         </td>
                     </tr>
                     <tr>
@@ -68,7 +81,7 @@
                             <label for='email'><b>Email  </b></label>
                         </td>
                         <td>
-                           <input type='text' placeholder='Enter Email' name='email' readonly> <br/>
+                           <input type='text' placeholder=<?php echo $info["email"];?> name='email' readonly> <br/>
                         </td>
                     </tr>
                     <tr>
@@ -76,11 +89,13 @@
                             <label for='address'><b>Address  </b></label>
                         </td>
                         <td>
-                            <input type='text' placeholder='Enter Address' name='address' required> <br/>
+                            <form method="post">
+                                <input type='text' name = "address" placeholder=<?php echo $info["address"];?> name='address' required> <br/>
+                                <button type='submit'>Update </button>
+                            </form>
                         </td>
                     </tr>
                </table>
-               <button type='submit'>Update </button>
             </div>
         </div>
 
@@ -97,6 +112,9 @@
             document.getElementById("main").style.marginLeft= "0";
             document.body.style.backgroundColor = "black";
             }
+
+         
+
         </script>
     </body>
 </html>
