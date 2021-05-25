@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Voter Home</title>
+        <title>Staff Home</title>
         <meta charset="UTF-8">
         <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn">&times;</a>
-            <a href="voterHome.php" class="home">Home</a>
-            <a href="profile.php" class="profile">Profile</a>
-            <a href="ballot.php" class="ballot">Voting Ballot</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="staffHome.php" class="home">Home</a>
+            <a href="voterReg.php" class="voterReg">Voter Registration</a>
+            <a href="elecInfo.php" class="electionInfo">Voting Ballot</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
