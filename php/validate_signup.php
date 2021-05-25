@@ -12,7 +12,7 @@
     $emailErr = "";
     $wardErr = "";
     
-    if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
+    if($_SERVER["REQUEST_METHOD"] === "POST") //process form data
     {
         $id = $_POST["id"];
         $email = $_POST["email"];
