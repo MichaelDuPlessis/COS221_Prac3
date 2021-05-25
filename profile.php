@@ -9,9 +9,9 @@
         <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="voterHome.php" class="home">Home</a>
-            <a href="profile.php" class="profile">Profile</a>
-            <a href="ballot.php" class="ballot">Voting Ballot</a>
+            <a href="voterHome.php" class="home" onclick="closeNav()">Home</a>
+            <a href="profile.php" class="profile" onclick="closeNav()">Profile</a>
+            <a href="ballot.php" class="ballot" onclick="closeNav()">Voting Ballot</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
@@ -73,10 +73,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <label for='address'><b>Address  </b></label>
+                            <label for='address'><b>Address </b></label>
                         </td>
                         <td>
+                            <form method="post">
                             <input type='text' placeholder='Enter Address' name='address' required> <br/>
+                            </form>
                         </td>
                     </tr>
                </table>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Staff Home</title>
+        <title>Voter Registration</title>
         <meta charset="UTF-8">
         <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -20,7 +20,34 @@
         </div>
 
         <div class="content" id="content">
-            <div class="bg-text">HOME</div>
+        <div class='voterInfo'>
+            <h1>Voter Information</h1>
+                <table>
+                <tr>
+                    <th>ID Number</th>
+                    <th>Name</th>
+                    <th>MiddleName/s</th>
+                    <th>Surname</th>
+                    <th>Cellphone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Approve Registration</th>
+                </tr>
+                <tr>
+                    <td>0105020082084</td>
+                    <td>Cara</td>
+                    <td>Mia</td>
+                    <td>Grobler</td>
+                    <td>0829772356</td>
+                    <td>cara@gmail.com</td>
+                    <td>Cornwall Hill</td>
+                    <td><input type="checkbox" name="approve"></td>
+                </tr>
+                <tr>
+                    <td>Good day</td>
+                </tr>
+                </table>
+            </div>
         </div>
 
         <script>
