@@ -20,7 +20,8 @@
         </div>
 
         <div class="content" id="content">
-            <div class="bg-text">HOME</div>
+            <div class="bg-text">WELCOME</div>
+            <img class="homeImg" src="img/election.jpg" alt="voteImg"/>
         </div>
 
         <script>

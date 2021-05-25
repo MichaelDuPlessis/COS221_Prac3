@@ -11,7 +11,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="staffHome.php" class="home" onclick="closeNav()">Home</a>
             <a href="voterReg.php" class="voterReg" onclick="closeNav()">Voter Registration</a>
-            <a href="elecInfo.php" class="electionInfo" onclick="closeNav()">Election Information</a>
+            <a href="elecInfo.php" class="elecInfo" onclick="closeNav()">Election Information</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
@@ -20,7 +20,8 @@
         </div>
 
         <div class="content" id="content">
-            <div class="bg-text">HOME</div>
+            <div class="bg-text">WELCOME</div>
+            <img class="homeImg" src="img/election.jpg" alt="voteImg"/>
         </div>
 
         <script>
