@@ -36,6 +36,9 @@
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email">
 
+                    <label for="wardID"><b>Ward ID</b></label>
+                    <input type="text" placeholder="Enter Ward ID" name="wardID" required>
+
                     <label for="address"><b>Address</b></label>
                     <input type="text" placeholder="Enter Address" name="address" required>
 

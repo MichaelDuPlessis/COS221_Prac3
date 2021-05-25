@@ -1,43 +1,65 @@
 <?php 
+    
     session_start(); 
-
+    
+    
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
     {
-        if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true)
-            header("location: "); //if logged in, redirect to homepage
-        else header("location: ");
-        exit;
+        if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
+            
+        }
+        else {
+            echo '<script> window.location.href = "./voter.php" </script>'; 
+            
+        }
+        // echo `
+        // <script>
+        // window.location.href = './voter.php'
+        // </script>`;
+        // else echo `
+        // <script>
+        // console.log("masepoes");
+        // window.location.href = './voter.php'
+        // </script>`;
+        
+        // exit;
     }
+
+    
 
     $id = $password = "";
     $idErr = $passwordErr = $loginErr = "";
-
+    
     require_once "./php/database.php";
     require_once "./php/password.php";
-
+    
     $db = Database::instance();
-
+    
     if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
     {
         if(empty(trim($_POST["id"])))
-            $idErr = "Please enter email";
-        else $id = trim($_POST["id"]);
-            
+        $idErr = "Please enter email";
+        else
+        $id = trim($_POST["id"]);
+        
         //validate password
-        if(empty(trim($_POST["password"])))
+        if(empty(trim($_POST["psw"])))
         $passwordErr = "Please enter password";
-        else $password = trim($_POST["password"]);
+        else $password = trim($_POST["psw"]);
         
         if(empty($idErr) && empty($passwordErr))
         {
             
             if ($db->findId($id) === true) {
-                                
-                $stored = $db->getUserPass($id);
                 
-                if(checkPass($password,$storedPass))
+                $stored = $db->getUserPass($id);
+                echo '<script> console.log('.$stored.'); </script>'; 
+                
+                
+                if(checkPass($password,$stored))
                 {
                     session_start();
+                    
                     
                     $_SESSION["loggedin"] = true;
                     $_SESSION["id"] = $id;

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Municipality Elections</title>
-        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
+        <!-- <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/> -->
     </head>
     <body>
         <?php include_once("./php/header.php") ?>
@@ -15,12 +15,14 @@
                 <div class="imgcontainer">
                     <img src="img/login.png" alt="Avatar" class="avatar">
                 </div>
-
+            
                 <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="id"><b>Username</b></label>
+                    <span class="invalid"> <?php echo $idErr; ?></span>
+                    <input type="tel" pattern="[0-9]*" placeholder="Enter ID" name="id" required>
 
                     <label for="psw"><b>Password</b></label>
+                    <span class="invalid"> <?php echo $passwordErr; ?></span>
                     <input type="password" placeholder="Enter Password" name="psw" required>
                         
                     <button type="submit">Login</button>
