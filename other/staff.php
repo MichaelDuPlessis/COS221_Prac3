@@ -64,7 +64,7 @@
                     "<td>Good day</td>"+
                 "</tr>"+
                 "</table>"+
-                "<button type='submit'
+                "<button type='submit"
             "</div>";
             closeNav();
         }

@@ -65,7 +65,6 @@
                         }
                         else {
                             echo '<script> window.location.href = "./voterHome.php" </script>'; 
-                            
                         }
                                                
                     }    

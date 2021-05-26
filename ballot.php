@@ -3,7 +3,7 @@
     <head>
         <title>Ballot</title>
         <meta charset="UTF-8">
-        <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
+        <!-- <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/> -->
     </head>
     <body>
         <img src="img/banner.jpg.png" alt="banner"/>
@@ -21,30 +21,34 @@
 
             <div class="content" id="content">
              <form method="post">
+
                 <div class='ballotContent'>
                     <div class='candidateContent'>
                         <h2> Candidate Vote </h2>
                             <div class='candidate'>
-                                <input type='radio' id='candidate' name='candidate' value='c1'>
+                                <?php include_once "./php/candidateBallot.php"; ?>
+                                <!-- <input type='radio' id='candidate' name='candidate' value='c1'>
                                 <label id='voting' for='candidate'>Cara Grobler</label><br>
 
                                 <input type='radio' id='candidate' name='candidate' value='c1'>
                                 <label id='voting' for='candidate'>Michael du Plessis</label><br>
 
                                 <input type='radio' id='candidate' name='candidate' value='c2'>
-                                <label id='voting' for='candidate'>Richard Lastrucci</label><br>
+                                <label id='voting' for='candidate'>Richard Lastrucci</label><br> -->
                             </div>
                     </div>
                     <div class='partyContent'>
                         <h2>   Party Vote </h2>
                         <div class='party'>
-                                <input type='radio' id='party' name='party' value='p1'>
+                            <?php include_once "./php/partyBallot.php"; ?>
+                                <!-- <input type='radio' id='party' name='party' value='p1'>
                                 <label id='voting' for='party'>ANC</label><br>
 
                                 <input type='radio' id='party' name='party' value='p2'>
-                                <label id='voting' for='party'>DA</label><br>
+                                <label id='voting' for='party'>DA</label><br> -->
                         </div>
                     </div>
+                    <?php include_once "./php/updateVotes.php"; ?>
                     <button type='submit' id='voteBtn'>Vote</button>
                 </div>
                 </form>
