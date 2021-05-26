@@ -94,6 +94,10 @@
             $_SESSION["name"] = $name;
             $_SESSION["wardID"] = $ward;
 
+            if (isset($_POST["staff"])) {
+                echo '<script> console.log('.'hi'.')</script>';
+            }
+
             // if ($db->checkUserinIEC($id) === true)
             //     $_SESSION["isIEC"] = true;
             // else $_SESSION["isIEC"] = false;

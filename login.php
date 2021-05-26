@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Municipality Elections</title>
-        <!-- <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/> -->
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <?php include_once("./php/header.php") ?>

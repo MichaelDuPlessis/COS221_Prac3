@@ -12,7 +12,7 @@
             <a href="staffHome.php" class="home" onclick="closeNav()">Home</a>
             <a href="voterReg.php" class="voterReg" onclick="closeNav()">Voter Registration</a>
             <a href="elecInfo.php" class="elecInfo" onclick="closeNav()">Election Information</a>
-            <a href="#" class="logout">Log Out</a>
+            <a href="#" class="logout" onclick="logout()">Log Out</a>
         </div>
 
         <div id="main">
@@ -36,6 +36,10 @@
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft= "0";
             document.body.style.backgroundColor = "black";
+            }
+
+            function logout() {
+                window.location.href = './php/logout.php';
             }
         </script>
     </body>

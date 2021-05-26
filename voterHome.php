@@ -12,7 +12,7 @@
             <a href="voterHome.php" class="home" onclick="closeNav()">Home</a>
             <a href="profile.php" class="profile" onclick="closeNav()">Profile</a>
             <a href="ballot.php" class="ballot" onclick="closeNav()">Voting Ballot</a>
-            <a href="#" class="logout">Log Out</a>
+            <a href="#" class="logout" onclick="logout()">Log Out</a>
         </div>
 
         <div id="main">

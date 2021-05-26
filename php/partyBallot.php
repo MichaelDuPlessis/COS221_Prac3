@@ -1,7 +1,7 @@
 <?php
     include_once "./php/database.php";
 
-    session_start();
+    // session_start();
     $wardID = $_SESSION["wardID"];
     $wardID = 2; // temp
     $db = Database::instance();
