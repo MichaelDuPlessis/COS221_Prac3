@@ -3,11 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Municipality Elections</title>
-<<<<<<< HEAD
-        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/> 
-=======
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
->>>>>>> 613e25b01fb5c16da1803c27d6ebc3ccafc03ffe
 
         <!-- php -->
     </head>

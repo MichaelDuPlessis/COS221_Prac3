@@ -3,7 +3,6 @@
 
     // session_start();
     $wardID = $_SESSION["wardID"];
-    $wardID = 2; // temp
     $db = Database::instance();
     $isLocal = $db->isLocal($wardID);
     $parties = null;
