@@ -61,7 +61,7 @@
 
                         
                         if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
-                            echo '<script> window.location.href = "./voterHome.php" </script>'; 
+                            echo '<script> window.location.href = "./staffHome.php" </script>'; 
                         }
                         else {
                             echo '<script> window.location.href = "./voterHome.php" </script>'; 
