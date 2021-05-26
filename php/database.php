@@ -107,8 +107,10 @@
             if (!$sql->execute())
                 die("Error: Failed to connect to database");
 
-            return ($sql->num_rows > 0);
+            $sql->bind_result($data);
+            $sql->fetch();
 
+            return ($data == $id);
         }
 
         //its in the name
