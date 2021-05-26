@@ -259,16 +259,32 @@
 
         public function setVoted($id) {
             $stmt = $this->conn->prepare("update person set voted_flag=true where id_no=?");
-            $stmt->bind_param("i", $id);
+            $stmt->bind_param("s", $id);
             if (!$stmt->execute())
                 die("Error: Failed to connect to database");
         }
 
         public function setVerified($id) {
             $stmt = $this->conn->prepare("update person set verified_IEC=true where id_no=?");
-            $stmt->bind_param("i", $id);
+            $stmt->bind_param("s", $id);
             if (!$stmt->execute())
                 die("Error: Failed to connect to database");
+        }
+
+        public function checkVerified($id) {
+            $sql = $this->conn->prepare("SELECT verified_IEC FROM person WHERE id_no=?");
+            if ($sql===false) {
+                die($this->conn->error);
+            }
+            $sql->bind_param('s',$id);
+            if (!$sql->execute())
+                die('Error: Failed to connect to database');
+            
+            $sql->bind_result($ver);
+            if (!$sql->fetch())
+                die("Error: Failed to connect to database");
+                        
+            return ($ver==1);
         }
 
         public function getUnverified() {

@@ -3,6 +3,8 @@
         session_start();
         if ($_SESSION["voted"] === true) {
             echo "<script> alert('You have already voted'); </script>";
+        } else if (!$db->checkVerified($_SESSION["id"])) {
+            echo "<script> alert('Awaiting IEC verificiation'); </script>";
         } else {
             $id = $_SESSION["id"];
             $db->setVoted($id);
