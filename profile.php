@@ -89,7 +89,7 @@
                         </td>
                         <td>
                             <form method="post">
-                                <input type='text' name = "address" placeholder=<?php echo $info["address"];?> name='address' required> <br/>
+                                <input type='text' name = "address" placeholder=<?php echo $info["address"];?> required> <br/>
                                 <button type='submit'>Update </button>
                             </form>
                         </td>

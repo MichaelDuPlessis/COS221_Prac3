@@ -12,9 +12,9 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
     {
         
-        if(empty(trim($_POST["address"])))
+        if(empty($_POST["address"]))
             $newAddressErr = "Please enter an address";
-        else $newAddress = trim($_POST["address"]);
+        else $newAddress = $_POST["address"];
 
         if (empty($newAddressErr))
         {
