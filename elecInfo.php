@@ -3,7 +3,7 @@
     <head>
         <title>Election Information</title>
         <meta charset="UTF-8">
-        <!-- <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/> -->
+        <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <img src="img/banner.jpg.png" alt="banner"/>

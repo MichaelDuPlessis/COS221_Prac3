@@ -305,18 +305,36 @@
 
         public function checkPartyExists($pid) {
             $stmt = $this->conn->prepare("Select p_id from political_party where p_id=?");
-            $stmt->bind_param("s", $pid);
+            $stmt->bind_param("i", $pid);
             $stmt->execute();
 
             $stmt->bind_result($data);
             $stmt->fetch();
 
-            return ($data === $pid);
+            return ($data == $pid);
         }
 
         public function addCandidate($id, $ward, $pid, $post) {
-            $stmt = $this->conn->prepare("insert into candidate value(?,?,?,0,?)");
+            $stmt = $this->conn->prepare("insert into candidate values(?,?,?,0,?)");
             $stmt->bind_param("siis", $id, $ward, $pid, $post);
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
+        }
+
+        public function isCandidate($id) {
+            $stmt = $this->conn->prepare("Select id_no from candidate where id_no=?");
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
+
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return ($data === $id);
+        }
+
+        public function addIEC($id) {
+            $stmt = $this->conn->prepare("insert into electoral_staff values(?)");
+            $stmt->bind_param("s", $id);
             if (!$stmt->execute())
                 die("Error: Failed to connect to database");
         }
