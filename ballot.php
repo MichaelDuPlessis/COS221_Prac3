@@ -36,17 +36,17 @@
                                 <input type='radio' id='candidate' name='candidate' value='c2'>
                                 <label id='voting' for='candidate'>Richard Lastrucci</label><br> -->
                             </div>
-                    </div>
-                    <div class='partyContent'>
-                        <h2>   Party Vote </h2>
-                        <div class='party'>
+                    <!--</div>
+                    //<div class='partyContent'>-->
+                        <br/> <br/> <h2>   Party Vote </h2>
+                        <!--<div class='party'>-->
                             <?php include_once "./php/partyBallot.php"; ?>
                                 <!-- <input type='radio' id='party' name='party' value='p1'>
                                 <label id='voting' for='party'>ANC</label><br>
 
                                 <input type='radio' id='party' name='party' value='p2'>
                                 <label id='voting' for='party'>DA</label><br> -->
-                        </div>
+                        <!--</div>-->
                     </div>
                     <?php include_once "./php/updateVotes.php"; ?>
                     <button type='submit' id='voteBtn'>Vote</button>
