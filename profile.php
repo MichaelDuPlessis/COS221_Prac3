@@ -77,19 +77,22 @@
                     </tr>
                     <tr>
                         <td>
-                            <label for='email'><b>Email  </b></label>
+                            <label for='email'><b>Email  </b></label> <br/>
                         </td>
                         <td>
-                           <input type='text' placeholder=<?php echo $info["email"];?> name='email' readonly> <br/>
+                           <input type='text' placeholder=<?php echo $info["email"];?> name='email' readonly>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for='address'><b>Address </b></label>
+                            <label for='address'><b>Address </b></label> <br/>
+                            <label for='address'><b> </b></label> <br/>
+                            <label for='address'><b> </b></label> <br/>
+                            <label for='address'><b> </b></label> <br/>
                         </td>
                         <td>
                             <form method="post">
-                                <input type='text' name = "address" placeholder=<?php echo $info["address"];?> name='address' required> <br/>
+                                <input type='text' name = "address" placeholder=<?php echo $info["address"];?> required> <br/>
                                 <button type='submit'>Update </button>
                             </form>
                         </td>
