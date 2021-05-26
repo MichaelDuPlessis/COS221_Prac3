@@ -9,19 +9,19 @@
     if (!$isLocal)
         $parties = $db->getParties($wardID, 'a');
     else {
-        echo "<h2>Local</h2>";
+        echo "<h3>Local</h3>";
         $parties = $db->getParties($wardID, 'l');
     }
 
     $i = 0;
     foreach ($parties as $party) {
         echo "<input type='radio' class='party' name='party' value='".$i."'>";
-        echo "<label class='voting' for='party'>" . $party["name"] . " (" . $party["abb"] . ")" . "</label><br>";
+        echo "<label class='voting' for='party'>" . $party["name"] . " (" . $party["abb"] . ")" . "</label>";
         $i++;
     }
 
     if ($isLocal) {
-        echo "<h2>District</h2>";
+        echo "<h3>District</h3>";
         $dParties = $db->getParties($wardID, 'd');
         $j = 0;
         foreach ($dParties as $party) {
