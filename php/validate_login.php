@@ -35,7 +35,7 @@
             if(empty($idErr) && empty($passwordErr))
             {
                 
-                echo '<script> console.log('.$id.')</script>';
+      
                 if ($db->findId($id) === true) {
                     
                     $stored = $db->getUserPass($id);
