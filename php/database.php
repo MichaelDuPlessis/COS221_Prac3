@@ -31,8 +31,9 @@
             $stmt = $this->conn->prepare("Select id_no from person where id_no=?");
             $stmt->bind_param("s", $id);
             $stmt->execute();
-
+            
             $stmt->bind_result($data);
+            echo '<script> console.log('.$id.')</script>';
             $stmt->fetch();
 
             return $stmt->num_rows() > 0;
@@ -64,10 +65,13 @@
 
         
         public function addUser($id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id) {
-            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $voted = 0;
+            $verified = 0;
             settype($ward_id, "integer");
-            $stmt->bind_param("ssssssssii", $id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id, $voted);
+            // if ($stmt===false) 
+            //     die($this->conn->error);
+            $stmt->bind_param("ssssssssiii", $id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id, $voted, $verified);
             if ($stmt->execute())
             echo 'success';
             else

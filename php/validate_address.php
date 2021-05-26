@@ -11,7 +11,7 @@
     
     if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
     {
-        echo '<script> console.log("hi")</script>';
+        
         if(empty(trim($_POST["address"])))
             $newAddressErr = "Please enter an address";
         else $newAddress = trim($_POST["address"]);
