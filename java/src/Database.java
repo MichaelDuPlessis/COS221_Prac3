@@ -32,28 +32,69 @@ public class Database {
 
         Node[] nodes = new Node[rowCount];
         int i = 0;
+        boolean shouldBreak = false;
         while(results.next()) {
             int mun_id = results.getInt(2);
-            int[] ward_ids = getWards(mun_id);
-            Party[] pInfo = null;
-            Party[] pdInfo = null;
-            Candidate[] cInfo = getcandidateInfo(ward_ids);
+            if (hasWards(mun_id)) {
+                int[] ward_ids = getWards(mun_id);
+                for (int j = 0; j < ward_ids.length; j++) {
+                    if (!hasCandidates(ward_ids[j])) {
+                        shouldBreak = true;
+                        break;
+                    }
+                }
 
-            if (results.getInt(3) == 0) {
-                pInfo = getPartyInfo(ward_ids, 'd');
-                pdInfo = getPartyInfo(ward_ids, 'l');
-            } else
-                pInfo = getPartyInfo(ward_ids, 'a');
+                for (int j = 0; j < ward_ids.length; j++) {
+                    if (!hasParties(ward_ids[j])) {
+                        shouldBreak = true;
+                        break;
+                    }
+                }
 
-            if (results.getInt(2) == 0)
-                nodes[i++] = new Node(results.getString(1), results.getInt(2), results.getInt(4), pInfo, pdInfo, cInfo);
-            else
-                nodes[i++] = new Node(results.getString(1), results.getInt(2), results.getInt(3), pInfo, cInfo);
+                if (shouldBreak)
+                    break;
 
-            break; // remove this
+                Party[] pInfo = null;
+                Party[] pdInfo = null;
+                Candidate[] cInfo = getcandidateInfo(ward_ids);
+    
+                if (results.getInt(3) == 0) {
+                    pInfo = getPartyInfo(ward_ids, 'd');
+                    pdInfo = getPartyInfo(ward_ids, 'l');
+                } else
+                    pInfo = getPartyInfo(ward_ids, 'a');
+    
+                if (results.getInt(2) == 0)
+                    nodes[i++] = new Node(results.getString(1), results.getInt(2), results.getInt(4), pInfo, pdInfo, cInfo);
+                else
+                    nodes[i++] = new Node(results.getString(1), results.getInt(2), results.getInt(3), pInfo, cInfo);
+            }
         }
-
         return nodes;
+    }
+
+    private boolean hasWards(int mun_id) throws SQLException {
+        String sql = "select ward_id from ward where mun_id = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, mun_id);
+        ResultSet results = stmt.executeQuery();
+        return results.next();
+    }
+
+    private boolean hasCandidates(int ward_id) throws SQLException {
+        String sql = "select candidate.id_no, f_name, l_name from candidate inner join person on candidate.id_no = person.id_no where votes <> 0 and candidate.ward_id = ? order by votes desc";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, ward_id);
+        ResultSet results = stmt.executeQuery();
+        return results.next();
+    }
+
+    private boolean hasParties(int ward_id) throws SQLException {
+        String sql = "select p_id from has where votes <> 0 and ward_id = ? order by votes desc";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, ward_id);
+        ResultSet results = stmt.executeQuery();
+        return results.next();
     }
 
     private int[] getWards(int mun_id) throws SQLException {

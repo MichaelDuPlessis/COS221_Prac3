@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class XML {
+    // note my crash if db is incomplete i.e. muncipalities with no wards
     public static void main(String[] args) throws IOException, SQLException {
         Database db = new Database();
         Node[] nodes = db.getNodes();
@@ -21,6 +22,9 @@ public class XML {
 
         // generate body
         for (int i = 0; i < nodes.length; i++) {
+            if (nodes[i] == null)
+                break;
+                
             String mun = "";
 
             // add parties and their majority control
@@ -49,8 +53,6 @@ public class XML {
             mun += generateTag("candidate", winner.fname + " " + winner.fname);
 
             body += generateTag("muncipality", mun, "name", nodes[i].munName + "(" + nodes[i].munID + ")");
-
-            break; //remove this
         }
 
         writer.write(generateTag("municipalities", body));
@@ -58,9 +60,9 @@ public class XML {
     }
 
     private static String generateTag(String tag, String data) {
-        return "<"+tag+">\n" + data + "\n</" + tag + ">";
+        return "<"+tag+">" + data + "</" + tag + ">";
     }
     private static String generateTag(String tag, String data, String attrName, String attr) {
-        return "<"+tag+" " + attrName + "=\"" + attr + "\">\n" + data + "\n</" + tag + ">";
+        return "<"+tag+" " + attrName + "=\"" + attr + "\">" + data + "</" + tag + ">";
     }
 }

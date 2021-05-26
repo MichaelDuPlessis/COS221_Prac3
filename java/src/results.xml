@@ -1,20 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<municipalities>
-<muncipality name="City Of Tshwane(3)">
-<Parties>
-<PurpleCows control="0.33333334">
-
-</PurpleCows><AnotherNightwithCandles control="0.6666667">
-
-</AnotherNightwithCandles>
-</Parties><candidates>
-<candidate>
-Richard Lastrucci
-</candidate><candidate>
-Beverly Lastrucci
-</candidate><candidate>
-Michael du Plessis
-</candidate>
-</candidates>
-</muncipality>
-</municipalities>
+<municipalities><muncipality name="City Of Tshwane(3)"><Parties><PurpleCows control="0.33333334"></PurpleCows><AnotherNightwithCandles control="0.6666667"></AnotherNightwithCandles></Parties><candidate>Richard Richard</candidate></muncipality></municipalities>
