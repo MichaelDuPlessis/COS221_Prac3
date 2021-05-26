@@ -23,7 +23,7 @@
         if($_SERVER["REQUEST_METHOD"] == "POST") //process form data
         {
             if(empty(trim($_POST["id"])))
-            $idErr = "Please enter email";
+            $idErr = "Please enter ID";
             else
             $id = trim($_POST["id"]);
             
@@ -35,14 +35,14 @@
             if(empty($idErr) && empty($passwordErr))
             {
                 
+      
                 if ($db->findId($id) === true) {
                     
                     $stored = $db->getUserPass($id);
-                            
+                    
                     if(checkPass($password,$stored))
                     {
                         session_start();
-                        
                         
                         $_SESSION["loggedin"] = true;
                         $_SESSION["id"] = $id;
@@ -50,7 +50,7 @@
                         $_SESSION["name"] = $name;
                         $wardID = $db->getUserWardID($id);
                         $_SESSION["wardID"] = $wardID;
-        
+                        
                         if ($db->checkUserinIEC($id) === true)
                             $_SESSION["isIEC"] = true;
                         else $_SESSION["isIEC"] = false;
