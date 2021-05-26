@@ -9,9 +9,9 @@
         <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="voterHome.php" class="home" onclick="home()">Home</a>
-            <a href="profile.php" class="profile" onclick="profile()">Profile</a>
-            <a href="ballot.php" class="ballot" onclick="ballot()">Voting Ballot</a>
+            <a href="voterHome.php" class="home" onclick="closeNav()">Home</a>
+            <a href="profile.php" class="profile" onclick="closeNav()">Profile</a>
+            <a href="ballot.php" class="ballot" onclick="closeNav()">Voting Ballot</a>
             <a href="#" class="logout">Log Out</a>
         </div>
 
@@ -19,9 +19,36 @@
             <span style="font-size:30px;cursor:pointer;color: white; background-color: black" onclick="openNav()">&#9776; menu</span>
         </div>
 
-        <div class="content" id="content">
-            <div class="bg-text">Ballot</div>
-        </div>
+            <div class="content" id="content">
+             <form method="post">
+                <div class='ballotContent'>
+                    <div class='candidateContent'>
+                        <h2> Candidate Vote </h2>
+                            <div class='candidate'>
+                                <input type='radio' id='candidate' name='candidate' value='c1'>
+                                <label id='voting' for='candidate'>Cara Grobler</label><br>
+
+                                <input type='radio' id='candidate' name='candidate' value='c1'>
+                                <label id='voting' for='candidate'>Michael du Plessis</label><br>
+
+                                <input type='radio' id='candidate' name='candidate' value='c2'>
+                                <label id='voting' for='candidate'>Richard Lastrucci</label><br>
+                            </div>
+                    </div>
+                    <div class='partyContent'>
+                        <h2>   Party Vote </h2>
+                        <div class='party'>
+                                <input type='radio' id='party' name='party' value='p1'>
+                                <label id='voting' for='party'>ANC</label><br>
+
+                                <input type='radio' id='party' name='party' value='p2'>
+                                <label id='voting' for='party'>DA</label><br>
+                        </div>
+                    </div>
+                    <button type='submit' id='voteBtn'>Vote</button>
+                </div>
+                </form>
+            </div>
 
         <script>
             

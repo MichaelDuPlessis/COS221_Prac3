@@ -10,8 +10,8 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#" class="home" onclick="home()">Home</a>
-            <a href="#" class="Voter Registration" onclick="register()">Voter Registration</a>
-            <a href="#" class="Voting Info" onclick="electionInfo()">Election Information</a>
+            <a href="#" class="VoterRegistration" onclick="register()">Voter Registration</a>
+            <a href="#" class="VotingInfo" onclick="electionInfo()">Election Information</a>
             <a href="#" class="Election Reports" onclick="report()">Election Report</a>
             <a href="#" class="logout" onclick="logout()">Log Out</a>
         </div>

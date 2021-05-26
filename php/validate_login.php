@@ -2,17 +2,14 @@
     
     session_start(); 
     
-    
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
     {
         if (isset($_SESSION["isIEC"]) && $_SESSION["isIEC"] === true) {
-            echo '<script> window.location.href = "./staff.php" </script>'; 
+            echo '<script> window.location.href = "./staffHome.php" </script>'; 
         }
         else {
             echo '<script> window.location.href = "./voterHome.php" </script>'; 
-            
         }
-
     }
     else {
         $id = $password = "";
