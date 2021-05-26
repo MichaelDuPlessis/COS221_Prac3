@@ -35,19 +35,19 @@
             $stmt->bind_result($data);
             $stmt->fetch();
 
-            return $stmt->num_rows() > 0;
+            return ($data === $id);
         }
 
         // returns true if email is found
         public function checkEmailExists($email) {
-            $stmt = $this->conn->prepare("Select id_no from person where email=?");
+            $stmt = $this->conn->prepare("Select email from person where email=?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
 
             $stmt->bind_result($data);
             $stmt->fetch();
-
-            return $stmt->num_rows() > 0;
+            // die($data);
+            return ($data === $email);
         }
 
         // returns a bool
@@ -62,9 +62,19 @@
             return $stmt->num_rows() > 0;
         }
 
+        public function checkCellExists($cell) {
+            $stmt = $this->conn->prepare("Select cell from person where cell=?");
+            $stmt->bind_param("s", $cell);
+            $stmt->execute();
+
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return ($data === $cell);
+        }
         
         public function addUser($id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id) {
-            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $this->conn->prepare("insert into person values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)");
             $voted = 0;
             settype($ward_id, "integer");
             $stmt->bind_param("ssssssssii", $id, $name, $mname, $surname, $cell, $email, $addr, $pass, $ward_id, $voted);
@@ -84,19 +94,7 @@
             $stmt->bind_result($data);
             $stmt->fetch();
 
-            return $stmt->num_rows() > 0;
-        }
-        
-        public function checkCellExists($cell) {
-            $sql = "Select id from person where cell=$cell";
-            $stmt = $this->conn->prepare("Select id from person where cell=?");
-            $stmt->bind_param("s", $cell);
-            $stmt->execute();
-
-            $stmt->bind_result($data);
-            $stmt->fetch();
-
-            return $stmt->num_rows() > 0;
+            return ($data == $ward);
         }
         
         // its in the name, also returns a bool
@@ -296,6 +294,31 @@
             }
 
             return $people;
+        }
+
+        public function addParty($name, $abb) {
+            $stmt = $this->conn->prepare("insert into political_party(p_name, abbr) value(?,?)");
+            $stmt->bind_param("ss", $name, $abb);
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
+        }
+
+        public function checkPartyExists($pid) {
+            $stmt = $this->conn->prepare("Select p_id from political_party where p_id=?");
+            $stmt->bind_param("s", $pid);
+            $stmt->execute();
+
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return ($data === $pid);
+        }
+
+        public function addCandidate($id, $ward, $pid, $post) {
+            $stmt = $this->conn->prepare("insert into candidate value(?,?,?,0,?)");
+            $stmt->bind_param("siis", $id, $ward, $pid, $post);
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
         }
     }
 ?>

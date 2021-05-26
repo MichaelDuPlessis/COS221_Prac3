@@ -3,7 +3,7 @@
     <head>
         <title>Election Information</title>
         <meta charset="UTF-8">
-        <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/>
+        <!-- <link href="css/stylesheet2.css" rel="stylesheet" type="text/css"/> -->
     </head>
     <body>
         <img src="img/banner.jpg.png" alt="banner"/>
@@ -20,9 +20,9 @@
         </div>
 
         <div class="content" id="content">
-            <form method="post">
             <div class="electionInfo">
                 <h1>Candidate Information</h1>
+                    <form method="POST">
                     <table>
                         <tr>
                             <td>
@@ -34,74 +34,33 @@
                         </tr>
                         <tr>
                             <td>
-                                <label for='name'><b>Name  </b></label>
+                                <label for='post'><b>Post  </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Name'  name='name' required> <br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for='middle_name'><b>MiddleName/s </b></label>
-                            </td>
-                            <td>
-                                <input type='text' placeholder='Enter Middle Name/s' name='middle_name'> <br/>
+                            <input type='text' placeholder='Enter Post' name='post' required> <br/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for='surname'><b>Surname  </b></label>
+                                <label for="ward_id"><b>Ward </b></label>
                             </td>
                             <td>
-                                <input type='text' placeholder='Enter Surname' name='surname' required> <br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for='cellphone'><b>Cellphone  </b></label>
-                            </td>
-                            <td>
-                                <input type='text' placeholder='Enter Cellphone' name='cellphone'> <br/>
+                            <input type='text' placeholder='Enter Ward ID' name='ward_id' required> <br/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for='email'><b>Email  </b></label>
+                                <label for="party"><b>Party </b></label>
                             </td>
                             <td>
-                            <input type='text' placeholder='Enter Email' name='email'> <br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for='address'><b>Address </b></label>
-                            </td>
-                            <td>
-                                <form method="post">
-                                <input type='text' placeholder='Enter Address' name='address' required> <br/>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for='pos'><b>Post  </b></label>
-                            </td>
-                            <td>
-                            <input type='text' placeholder='Enter Post' name='pos' required> <br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="ward"><b>Ward </b></label>
-                            </td>
-                            <td>
-                               <select name="ward" id="combo">
-                                    <option value="1">1</option>
-                               </select><br/>
+                            <input type='text' placeholder='Enter Party ID' name='party' required> <br/>
                             </td>
                         </tr>
                 </table>
                 <button type='submit'>Submit </button>
+                <?php include_once "./php/validateCanidate.php"; ?>
+                </form>
+                <form method="POST">
                 <h1>Political Party Information</h1>
                 <table>
                         <tr>
@@ -122,9 +81,10 @@
                         </tr>
                 </table>
                 <button type='submit'>Submit</button>
+                <?php include_once "./php/registerPolitical.php"; ?>
+                </form>
                 </div>
             </div>
-            </form>
         </div>
 
         <script>
