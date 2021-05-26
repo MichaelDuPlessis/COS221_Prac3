@@ -10,7 +10,7 @@
     if (!$isLocal)
         $parties = $db->getParties($wardID, 'a');
     else {
-        echo "<h1>Local</h1>";
+        echo "<h2>Local</h2>";
         $parties = $db->getParties($wardID, 'l');
     }
 
@@ -22,7 +22,7 @@
     }
 
     if ($isLocal) {
-        echo "<h1>District</h1>";
+        echo "<h2>District</h2>";
         $dParties = $db->getParties($wardID, 'd');
         $j = 0;
         foreach ($dParties as $party) {
