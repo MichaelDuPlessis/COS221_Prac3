@@ -7,8 +7,8 @@
     </head>
     <body>
     <?php 
-        require_once "./php/database.php";
-        require_once "./php/validate_address.php";
+        require_once("php/database.php");
+        require_once ("php/validate_address.php");
 
         session_start();
         
@@ -17,7 +17,6 @@
 
         $info = $db->getUserDetailsAll($id);
     ?>
-
     
         <img src="img/banner.jpg.png" alt="banner"/>
         <div id="mySidenav" class="sidenav">
@@ -112,8 +111,6 @@
             document.getElementById("main").style.marginLeft= "0";
             document.body.style.backgroundColor = "black";
             }
-
-         
 
         </script>
     </body>

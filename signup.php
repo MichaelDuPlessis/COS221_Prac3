@@ -3,7 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Municipality Elections</title>
+<<<<<<< HEAD
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
+=======
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/> 
+>>>>>>> bfa63bb614f56fe11f0da31c3059acfc1c782f7d
 
         <!-- php -->
     </head>
@@ -44,6 +48,10 @@
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <label for="staff"><b>Staff Member?</b></label>
+                    <input type="checkbox" id="staff" name="staff" value="isIECStaff">
+
                         
                     <button type="submit">Sign Up</button>
                 </div>
