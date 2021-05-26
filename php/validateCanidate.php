@@ -9,9 +9,9 @@
     if($_SERVER["REQUEST_METHOD"] === "POST") //process form data
     {
         $id = $_POST["id"];
-        $email = $_POST["post"];
+        $post = $_POST["post"];
         $ward = $_POST["ward_id"];
-        $pid = $_POST["party_id"];
+        $pid = $_POST["party"];
 
         $good = true;
 
@@ -20,6 +20,11 @@
         // id
         if ($db->findId($id) == 0) {
             errorMsg("ID not found");
+            $good = false;
+        }
+
+        if ($db->isCandidate($id) == 0) {
+            errorMsg("Person already a candidate");
             $good = false;
         }
 
@@ -39,10 +44,16 @@
             errorMsg("No such party exists");
             $good = false;
         }
+
+        if (strlen($post) == 0) {
+            errorMsg("A post must be entered");
+            $good = false;
+        }
         
         // // if all good
         if ($good) {
             $db->addCandidate($id, $ward, $pid, $post);
+            errorMsg("Canidate entered");
         }
     }
 ?>

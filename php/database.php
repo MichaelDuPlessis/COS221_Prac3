@@ -113,7 +113,7 @@
 
         //its in the name
         public function checkUserVoted($id) {
-            $sql = $this->conn->prepare("SELECT voted FROM person WHERE id_no=?");
+            $sql = $this->conn->prepare("SELECT voted_flag FROM person WHERE id_no=?");
             if ($sql===false) 
                 die($this->conn->error);
             $sql->bind_param("s", $id);
@@ -130,11 +130,10 @@
             if (!$sql->execute())
                 die('Error: Failed to connect to database');
             
-            $sql->bind_result($wardID);
-            $sql->close();
+            $sql->bind_result($wardID);;
+            $sql->fetch();
                     
             return $wardID;
-
         }
 
         public function getUserName($id) {
@@ -145,7 +144,7 @@
             
             $sql->bind_result($fname,$lname);
             $name = $fname .' '. $lname;
-            $sql->close();
+            $sql->fetch();
             
             return $name;
         }
@@ -212,9 +211,9 @@
         public function getParties($wardID, $type) {
             $sql = "";
             if ($type === 'l')
-                $sql = "Select has.p_id, p_name, abbr from political_party inner join has on political_party.p_id = has.p_id where has.ward_id = ? and isDist <> 0";
+                $sql = "Select has.p_id, p_name, abbr from political_party inner join has on political_party.p_id = has.p_id where has.ward_id = ? and is_Dist <> 0";
             else if ($type === 'd')
-            $sql = "Select has.p_id, p_name, abbr from political_party inner join has on political_party.p_id = has.p_id where has.ward_id = ? and isDist = 0";
+            $sql = "Select has.p_id, p_name, abbr from political_party inner join has on political_party.p_id = has.p_id where has.ward_id = ? and is_Dist = 0";
             else if ($type === 'a')
                 $sql = "Select has.p_id, p_name, abbr from political_party inner join has on political_party.p_id = has.p_id where has.ward_id = ?";
         
@@ -321,18 +320,36 @@
 
         public function checkPartyExists($pid) {
             $stmt = $this->conn->prepare("Select p_id from political_party where p_id=?");
-            $stmt->bind_param("s", $pid);
+            $stmt->bind_param("i", $pid);
             $stmt->execute();
 
             $stmt->bind_result($data);
             $stmt->fetch();
 
-            return ($data === $pid);
+            return ($data == $pid);
         }
 
         public function addCandidate($id, $ward, $pid, $post) {
-            $stmt = $this->conn->prepare("insert into candidate value(?,?,?,0,?)");
+            $stmt = $this->conn->prepare("insert into candidate values(?,?,?,0,?)");
             $stmt->bind_param("siis", $id, $ward, $pid, $post);
+            if (!$stmt->execute())
+                die("Error: Failed to connect to database");
+        }
+
+        public function isCandidate($id) {
+            $stmt = $this->conn->prepare("Select id_no from candidate where id_no=?");
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
+
+            $stmt->bind_result($data);
+            $stmt->fetch();
+
+            return ($data === $id);
+        }
+
+        public function addIEC($id) {
+            $stmt = $this->conn->prepare("insert into electoral_staff values(?)");
+            $stmt->bind_param("s", $id);
             if (!$stmt->execute())
                 die("Error: Failed to connect to database");
         }
